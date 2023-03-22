@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="638.0" prefWidth="609.0" spacing="25.0">
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <ImageView fx:id="tr_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../triangle.png" />
+                     </image></ImageView>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Side A" />
+                              <TextField fx:id="tr_A" prefHeight="25.0" prefWidth="60.0" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="Side B" />
+                              <TextField fx:id="tr_B" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label text="Hypotenuse" />
+                              <TextField fx:id="tr_C" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="calc_tr" mnemonicParsing="false" onMouseClicked="#onCalcTr" text="Calculate" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <ImageView fx:id="sq_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../square.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin></ImageView>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <VBox alignment="TOP_CENTER" spacing="5.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Side" />
+                              <TextField fx:id="sq_A" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="calc_sq" mnemonicParsing="false" onMouseClicked="#onCalcSq" text="Calculate" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <ImageView fx:id="rec_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../../rectangle.png" />
+                     </image></ImageView>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <VBox alignment="TOP_CENTER" spacing="5.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Side A" />
+                              <TextField fx:id="rec_A" />
+                              <Label text="Side B" />
+                              <TextField fx:id="rec_B" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="calc_rec" mnemonicParsing="false" onMouseClicked="#onCalcRec" text="Calculate" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </HBox.margin>
+      </VBox>
+   </children>
+</HBox>
