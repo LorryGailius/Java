@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: com.example.mortgage_calculator.Launcher
-Class-Path: javafx-graphics-19.jar javafx-fxml-19-win.jar javafx-base-19
- .jar javafx-base-19-win.jar javafx-controls-19.jar javafx-fxml-19.jar c
- ontrolsfx-11.1.2.jar javafx-graphics-19-win.jar javafx-controls-19-win.
- jar formsfx-core-11.5.0.jar
-
