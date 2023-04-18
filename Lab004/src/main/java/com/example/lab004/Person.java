@@ -1,4 +1,4 @@
-package com.example.lab003;
+package com.example.lab004;
 
 public abstract class Person {
     public int id;

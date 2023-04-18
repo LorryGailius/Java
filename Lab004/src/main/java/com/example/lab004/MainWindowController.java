@@ -1,4 +1,4 @@
-package com.example.lab003;
+package com.example.lab004;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,22 +14,7 @@ public class MainWindowController {
     List<StudentGroup> groups = new ArrayList<StudentGroup>();
     Student editableStudent = null;
     int group_id = 0;
-    @FXML
-    private Button CreateGroupButton;
-    @FXML
-    private Button DeleteGroupButton;
-    @FXML
-    private Button CreateStudentButton;
-    @FXML
-    private Button EditStudentButton;
-    @FXML
-    private Button FilterButton;
-    @FXML
-    private Button ClearFilterButton;
-    @FXML
-    private Button SaveStudentButton;
-    @FXML
-    private Button DeleteStudentButton;
+
     @FXML
     private TextField StudentNameField;
     @FXML
@@ -229,9 +214,12 @@ public class MainWindowController {
             return;
         }
 
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
         File file = fileChooser.showSaveDialog(null);
 
         if (file != null) {
@@ -260,6 +248,8 @@ public class MainWindowController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
         File file = fileChooser.showOpenDialog(null);
 
         if(file != null)

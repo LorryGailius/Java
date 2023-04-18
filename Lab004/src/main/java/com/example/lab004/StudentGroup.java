@@ -1,4 +1,4 @@
-package com.example.lab003;
+package com.example.lab004;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,31 +34,22 @@ public class StudentGroup extends Group {
             isFiltered = true;
         }
 
-        if (to == 0 && from == 0) {
-            clearFilter();
-            return;
-        }
-
         personList.clear();
 
         //Check if array size is between from and to
         for (Student student : originalList) {
-            System.out.println("Student " + student.getName() + " has attendance length " + student.getAttendance().length);
             int last = student.getAttendance().length - 1;
             if (last >= from) {
                 Student temp = new Student();
                 temp.setId(student.getId());
                 temp.setName(student.getName());
                 int diff = Math.min(to - from + 1, student.getAttendance().length - from);
-                ;
-                System.out.println("Diff " + diff);
                 int[] newAttendance = new int[diff];
                 for (int i = 0; i < newAttendance.length; i++) {
                     System.out.println(i + " " + from);
                     if (i + from > last)
                         break;
                     newAttendance[i] = student.getAttendance()[i + from];
-                    System.out.println("New attendance " + newAttendance[i]);
                 }
                 temp.setAttendance(newAttendance);
                 temp.setAttendanceString(newAttendance);

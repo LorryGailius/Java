@@ -1,4 +1,4 @@
-package com.example.lab003;
+package com.example.lab004;
 
 public class Student extends Person {
     public int[] attendance;

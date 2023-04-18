@@ -1,4 +1,4 @@
-package com.example.lab003;
+package com.example.lab004;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
