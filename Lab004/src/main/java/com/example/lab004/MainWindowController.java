@@ -53,7 +53,8 @@ public class MainWindowController {
             return;
         }
 
-        new_student.id = groups.get(selected_tab).personList.size() + 1;
+        new_student.id = groups.get(selected_tab).lastIdx + 1;
+        groups.get(selected_tab).lastIdx = new_student.id;
 
         new_student.name = StudentNameField.getText();
 
@@ -271,6 +272,7 @@ public class MainWindowController {
                             data = line.split(",");
                             Student student = new Student();
                             student.id = Integer.parseInt(data[0]);
+                            group.lastIdx = student.id;
                             student.name = data[1];
                             student.attendanceString = data[2];
                             student.attendance = new int[student.attendanceString.split(" ").length];
