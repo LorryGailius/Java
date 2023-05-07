@@ -1,0 +1,1 @@
+[{"type":"MESSAGE","username":"Client3","group":"Chat3","content":"Hello world"},{"type":"PRIVATE_MESSAGE","username":"Client3","receiver":"Client2","group":"Chat3","content":"hey man"},{"type":"PRIVATE_MESSAGE","username":"Client3","receiver":"Client2","group":"Chat3","content":"hey man"}]
