@@ -1,0 +1,2 @@
+# Singleton
+Create an application with at least three instances of simple GUI (button, image, etc.). When one is pressed a new window should pop up with information on the selected instance. The application should be implemented as a singleton.
