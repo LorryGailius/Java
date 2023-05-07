@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainWindowController {
+public class MainWindowController implements IFileProcessing {
 
     List<StudentGroup> groups = new ArrayList<StudentGroup>();
     Student editableStudent = null;
@@ -211,11 +211,9 @@ public class MainWindowController {
 
     @FXML
     public void save() {
-        if(groups.size() == 0) {
+        if (groups.size() == 0) {
             return;
         }
-
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
@@ -223,22 +221,7 @@ public class MainWindowController {
 
         File file = fileChooser.showSaveDialog(null);
 
-        if (file != null) {
-            try {
-                FileWriter fileWriter = new FileWriter(file);
-
-                for(int i = 0; i < groups.size(); i++) {
-                    fileWriter.write(groups.get(i).groupName + "," + groups.get(i).personList.size() + "\n");
-                    for (int j = 0; j < groups.get(i).personList.size(); j++) {
-                        Student student = (Student) groups.get(i).personList.get(j);
-                        fileWriter.write(student.id + "," + student.name + "," + student.attendanceString + "\n");
-                    }
-                }
-                fileWriter.close();
-            } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
-        }
+        writeToFile(file);
     }
 
     @FXML
@@ -253,8 +236,12 @@ public class MainWindowController {
 
         File file = fileChooser.showOpenDialog(null);
 
-        if(file != null)
-        {
+        readFromFile(file);
+    }
+
+    @Override
+    public void readFromFile(File file) {
+        if (file != null) {
             try {
                 FileReader fileReader = new FileReader(file);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -282,18 +269,44 @@ public class MainWindowController {
                             group.personList.add(student);
                         }
                         groups.add(group);
-                        group_id  = Integer.parseInt(group.groupName.split(" ")[1]);
+                        group_id = Integer.parseInt(group.groupName.split(" ")[1]);
                         Tab tab = new Tab(group.groupName);
                         TabPane.getTabs().add(tab);
                         group.displayInfo(tab);
                     }
                 }
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
-
     }
 
+    @Override
+    public void writeToFile(File file) {
+        if (file != null) {
+            try {
+                FileWriter fileWriter = new FileWriter(file);
+
+                for (int i = 0; i < groups.size(); i++) {
+                    fileWriter.write(groups.get(i).groupName + "," + groups.get(i).personList.size() + "\n");
+                    for (int j = 0; j < groups.get(i).personList.size(); j++) {
+                        Student student = (Student) groups.get(i).personList.get(j);
+                        fileWriter.write(student.id + "," + student.name + "," + student.attendanceString + "\n");
+                    }
+                }
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
+
+    @Override
+    public void saveToPDF(File file) {
+        if(file != null){
+            // Create a pdf document with all tables in it
+
+
+        }
+    }
 }

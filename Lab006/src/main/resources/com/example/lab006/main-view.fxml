@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="10.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab006.MainController">
+   <children>
+      <Label text="Laurynas Gailius" />
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Button fx:id="fileButton" mnemonicParsing="false" onMouseClicked="#selectFile" text="Select file..." />
+            <Label fx:id="fileInfo" text="File info" />
+         </children>
+      </HBox>
+      <SplitPane dividerPositions="0.5" focusTraversable="false" VBox.vgrow="ALWAYS">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" scaleShape="false" SplitPane.resizableWithParent="false">
+               <children>
+                  <TableView fx:id="leftTable" prefHeight="343.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" scaleShape="false" SplitPane.resizableWithParent="false">
+               <children>
+                  <TableView fx:id="readTable" layoutX="63.0" layoutY="42.0" onMouseClicked="#getSelectedElement" prefHeight="343.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <Label alignment="CENTER" text="Data read" />
+            <Region HBox.hgrow="SOMETIMES" />
+            <VBox alignment="TOP_CENTER">
+               <children>
+                  <Label text="Selected element:" />
+                  <Label fx:id="elementInfo" text="Element" />
+                  <Button fx:id="removeButton" mnemonicParsing="false" onMouseClicked="#removeSelectedElement" text="Delete element">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </VBox>
+            <Region HBox.hgrow="SOMETIMES" />
+            <VBox alignment="TOP_RIGHT" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" text="Data stored" textAlignment="CENTER" />
+                  <Button fx:id="clearButton" mnemonicParsing="false" onMouseClicked="#clear" text="Clear all entries" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
