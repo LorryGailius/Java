@@ -1,6 +1,7 @@
 package com.example.lab5;
 
 import com.google.gson.Gson;
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
 import java.io.*;
@@ -69,29 +70,41 @@ public class Client {
 
                         switch (messageObject.getType()) {
                             case CONNECT -> {
-                                chatArea.appendText("User " + messageObject.getUsername() + " connected\n");
+                                Platform.runLater(() -> {
+                                    chatArea.appendText("User " + messageObject.getUsername() + " connected\n");
+                                });
                             }
 
                             case MESSAGE -> {
-                                chatArea.appendText(messageObject.getUsername() + ": " + messageObject.getContent() + "\n");
+                                Platform.runLater(() -> {
+                                    chatArea.appendText(messageObject.getUsername() + ": " + messageObject.getContent() + "\n");
+                                });
                             }
 
                             case PRIVATE_MESSAGE -> {
                                 if(messageObject.receiver.equals(username)) {
-                                    chatArea.appendText(messageObject.getUsername() + " (private): " + messageObject.getContent() + "\n");
+                                    Platform.runLater(() -> {
+                                        chatArea.appendText(messageObject.getUsername() + " (private): " + messageObject.getContent() + "\n");
+                                    });
                                 } else if (messageObject.getUsername().equals(username)) {
-                                    chatArea.appendText("Message(private) to " + messageObject.getReceiver() + ": " + messageObject.getContent() + "\n");
+                                    Platform.runLater(() -> {
+                                        chatArea.appendText("Message(private) to " + messageObject.getReceiver() + ": " + messageObject.getContent() + "\n");
+                                    });
                                 }
                             }
 
                             case DISCONNECT -> {
-                                chatArea.appendText("User " + messageObject.getUsername() + " disconnected\n");
+                                Platform.runLater(() -> {
+                                    chatArea.appendText("User " + messageObject.getUsername() + " disconnected\n");
+                                });
                             }
 
                             case ERROR -> {
                                 chatArea.setDisable(true);
                                 close();
-                                chatArea.appendText("Error: " + messageObject.getContent() + "\n");
+                                Platform.runLater(() -> {
+                                    chatArea.appendText("Error: " + messageObject.getContent() + "\n");
+                                });
                             }
                         }
                     }
