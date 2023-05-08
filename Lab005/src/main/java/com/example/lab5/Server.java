@@ -16,6 +16,10 @@ public class Server {
 
     public void start() {
         File folder = new File("groups");
+        // If the folder doesn't exist, create it
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
         File[] listOfFiles = folder.listFiles();
         if (listOfFiles != null) {
             for (File file : listOfFiles) {
