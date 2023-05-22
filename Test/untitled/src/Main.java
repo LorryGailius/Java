@@ -211,8 +211,6 @@ public class Main extends PApplet {
                 }
             }
 
-
-            // Handle control flow statements
             if (command.equals("for")) {
                 if (arguments.length > 1) {
                     String variable = arguments[0];
@@ -253,11 +251,9 @@ public class Main extends PApplet {
                             if (nestedLine.equals("endif")) {
                                 break; // End of if statement block
                             }
-                            // Parse and execute nested commands (recursive)
                             parseAndExecuteCommand(nestedLine);
                         }
                     } else {
-                        // Skip lines inside the if statement block
                         while (!line.equals("endif")) {
                             i++;
                             line = codeLines[i].trim();
@@ -278,7 +274,6 @@ public class Main extends PApplet {
                             if (nestedLine.equals("endwhile")) {
                                 break; // End of while loop block
                             }
-                            // Parse and execute nested commands (recursive)
                             parseAndExecuteCommand(nestedLine);
                         }
                     }
