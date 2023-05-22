@@ -1,0 +1,17 @@
+while playerX < 18
+move 1
+endwhile
+rotate right
+move 19
+
+for i 5
+ move 1
+endfor
+rotate right
+move 9
+rotate left 
+move 2
+mine
+move 6
+place
+move 7
